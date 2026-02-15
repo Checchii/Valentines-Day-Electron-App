@@ -57,12 +57,28 @@ body {
 .train {
   position: absolute;
   top: 154px;
-  left: 0px; /* adjust later for animation */
+  left: 292px; /* adjust later for animation */
   width: 292px;
   height: 58px;
   background: url('assets/Train.png') no-repeat;
   background-size: contain;
-  z-index: 3;
+  z-index: 4;
+
+  animation: 
+  trainMove 12s linear infinite,
+  trainBounce 0.6s ease-in-out infinite;
+}
+
+/* Train Tracks*/
+.train-tracks {
+    position: absolute;
+    top: 205px;
+    left: 0;
+    width: 292px;
+    height: 17px;
+    background: url('assets/Train Tracks.png') no-repeat;
+    background-size: contain;
+    z-index: 3;
 }
 
 /* Sakura Tree */
@@ -74,7 +90,7 @@ body {
   height: 217px;
   background: url('assets/Sakura Tree.png') no-repeat;
   background-size: contain;
-  z-index: 5;
+  z-index: 8;
 }
 
 /* Snow mid */
@@ -86,17 +102,19 @@ body {
   height: 219px;
   background: url('assets/snow mid.png') no-repeat;
   background-size: cover;
-  z-index: 4;
+  z-index: 7;
 }
 
 /* Envelopes */
-.envelopes {
+.envelope {
   position: absolute;
   top: 0;
   left: 0;
   width: 292px;
   height: 430px;
-  z-index: 6;
+  z-index: 9;
+
+  transition: opacity 0.4s ease;
 }
 
 .envelope1 {
@@ -107,6 +125,8 @@ body {
   height: 21px;
   background: url('assets/Envelope 1.png') no-repeat;
   background-size: contain;
+  cursor: pointer;
+  z-index: 11;
 }
 
 .envelope2 {
@@ -117,16 +137,26 @@ body {
   height: 21px;
   background: url('assets/Envelope 2.png') no-repeat;
   background-size: contain;
+  cursor: pointer;
+  z-index: 12;
 }
 
-.envelope3 {
+@keyframes envelopeTrainMove {
+  from { left: calc(292px + 130px); }   /* start offscreen + offset */
+  to   { left: calc(-292px + 130px); }  /* end offscreen + offset */
+}
+
+.envelope-train {
   position: absolute;
-  top: 168px;
-  left: 165px;
-  width: 21px;
-  height: 21px;
+  top: 174px;
+  width: 20px;
+  height: 20px;
   background: url('assets/Envelope 3.png') no-repeat;
   background-size: contain;
+  cursor: pointer;
+  z-index: 10;
+
+  animation: envelopeTrainMove 12s linear infinite;
 }
 
 /* Snow front */
@@ -138,6 +168,52 @@ body {
   height: 235px;
   background: url('assets/snow front.png') no-repeat;
   background-size: cover;
-  z-index: 7;
+  z-index: 10;
+
+}
+
+#no-btn {
+  transition: width 0.2s, height 0.2s;
+}
+
+#final-message {
+  animation: cardPop 0.5s ease-out forwards;
+  background-color: #ffe6f0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+@keyframes cardPop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity:0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity:1; }
+}
+
+@keyframes cardPop {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity:0; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity:1; }
+}
+
+
+@keyframes trainMove {
+  from {
+    left: 292px;
+  }
+  to {
+    left: -292px;
+  }
+}
+
+@keyframes trainBounce {
+
+  0%   { transform: translateY(0px); }
+  25%  { transform: translateY(-1px); }
+  50%  { transform: translateY(0px); }
+  75%  { transform: translateY(1px); }
+  100% { transform: translateY(0px); }
 
 }
