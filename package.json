@@ -1,0 +1,9 @@
+{
+  "name": "valentines-day-app",
+  "version": "1.0.0",
+  "description": "Valentine's Day App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  }
+}

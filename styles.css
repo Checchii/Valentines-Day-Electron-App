@@ -1,0 +1,143 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.scene {
+  position: relative;
+  width: 292px;  /* match Electron window */
+  height: 430px;
+  overflow: hidden;
+  background: none; /* sky is separate */
+}
+
+/* Sky layer */
+.sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 292px;
+  height: 177px;
+  background: linear-gradient(
+    180deg,
+    #a1cfff 0%,   /* top sky color */
+    #ffb3d1 50%,  /* middle gradient */
+    #dfa1ff 100%  /* bottom sunset pink */
+  );
+  z-index: 0;
+}
+
+/* Background layer */
+.background {
+  position: absolute;
+  top: -50px;
+  left: -1px;
+  width: 293px;
+  height: 293px;
+  background: url('assets/Background.png') no-repeat;
+  background-size: cover;
+  z-index: 2;
+}
+
+/* Snow back */
+.snow-back {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 292px;
+  height: 219px;
+  background: url('assets/snow back.png') no-repeat;
+  background-size: cover;
+  z-index: 1;
+  transform: scaleX(-1);
+}
+
+/* Train */
+.train {
+  position: absolute;
+  top: 154px;
+  left: 0px; /* adjust later for animation */
+  width: 292px;
+  height: 58px;
+  background: url('assets/Train.png') no-repeat;
+  background-size: contain;
+  z-index: 3;
+}
+
+/* Sakura Tree */
+.sakura-tree {
+  position: absolute;
+  top: 118px; 
+  left: -38px;
+  width: 217px;
+  height: 217px;
+  background: url('assets/Sakura Tree.png') no-repeat;
+  background-size: contain;
+  z-index: 5;
+}
+
+/* Snow mid */
+.snow-mid {
+  position: absolute;
+  top: 117px;
+  left: 0;
+  width: 292px;
+  height: 219px;
+  background: url('assets/snow mid.png') no-repeat;
+  background-size: cover;
+  z-index: 4;
+}
+
+/* Envelopes */
+.envelopes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 292px;
+  height: 430px;
+  z-index: 6;
+}
+
+.envelope1 {
+  position: absolute;
+  top: 288px;
+  left: 258px;
+  width: 21px;
+  height: 21px;
+  background: url('assets/Envelope 1.png') no-repeat;
+  background-size: contain;
+}
+
+.envelope2 {
+  position: absolute;
+  top: 232px;
+  left: 53px;
+  width: 21px;
+  height: 21px;
+  background: url('assets/Envelope 2.png') no-repeat;
+  background-size: contain;
+}
+
+.envelope3 {
+  position: absolute;
+  top: 168px;
+  left: 165px;
+  width: 21px;
+  height: 21px;
+  background: url('assets/Envelope 3.png') no-repeat;
+  background-size: contain;
+}
+
+/* Snow front */
+.snow-front {
+  position: absolute;
+  top: 195px;
+  left: -1px;
+  width: 292px;
+  height: 235px;
+  background: url('assets/snow front.png') no-repeat;
+  background-size: cover;
+  z-index: 7;
+
+}
